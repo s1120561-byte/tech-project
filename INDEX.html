@@ -1,0 +1,92 @@
+Notepad++ v8.8.5 regression-fix:
+
+ <html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人檔案首頁</title>
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .link-card {
+            transition: all 0.3s ease-in-out;
+        }
+        .link-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .link-card:hover .icon {
+            transform: scale(1.1);
+        }
+        /* 定義動態淡入效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 md:p-8">
+
+    <!-- 主容器 -->
+    <div id="profile-card" class="bg-white rounded-3xl shadow-xl max-w-lg w-full p-8 md:p-12 text-center animate-fadeIn">
+        
+        <!-- 個人頭像與標題 -->
+        <div class="mb-8">
+            <img src="https://placehold.co/128x128/9CA3AF/FFFFFF?text=學生" alt="個人頭像" class="w-32 h-32 mx-auto rounded-full object-cover shadow-lg mb-4 transform-gpu animate-fadeIn">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2 transform-gpu animate-fadeIn delay-100">學生</h1>
+            <p class="text-lg text-gray-500 transform-gpu animate-fadeIn delay-200">讀書很厲害</p>
+        </div>
+
+        <!-- 連結按鈕區塊 -->
+        <div class="space-y-4">
+            <!-- GitHub 連結 -->
+            <a href="https://github.com/your-github" class="link-card flex items-center justify-center p-4 bg-gray-900 text-white rounded-full font-semibold shadow-md transform-gpu animate-fadeIn delay-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon h-6 w-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.309 3.492 1.006.108-.778.418-1.309.762-1.605-2.665-.299-5.464-1.332-5.464-5.93 0-1.312.465-2.384 1.237-3.221-.124-.3-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.875.118 3.176.772.837 1.236 1.909 1.236 3.221 0 4.609-2.807 5.62-5.479 5.922.43.369.815 1.097.815 2.215v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+            </a>
+
+            <!-- LinkedIn 連結 -->
+            <a href="https://linkedin.com/in/your-linkedin" class="link-card flex items-center justify-center p-4 bg-blue-700 text-white rounded-full font-semibold shadow-md transform-gpu animate-fadeIn delay-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon h-6 w-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.767s.784-1.767 1.75-1.767 1.75.79 1.75 1.767-.783 1.767-1.75 1.767zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                LinkedIn
+            </a>
+            
+            <!-- Email 連結 -->
+            <a href="mailto:your-email@example.com" class="link-card flex items-center justify-center p-4 bg-gray-500 text-white rounded-full font-semibold shadow-md transform-gpu animate-fadeIn delay-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon h-6 w-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.467 4.287l-6.533-5.253v8.038h13v-8.038l-6.471 5.253zM24 6.784l-12 9.216-12-9.216v-2.784h24v2.784z"/>
+                </svg>
+                Email
+            </a>
+
+            <!-- IG (Linktree) 連結 -->
+            <a href="https://instagram.com/your-instagram" class="link-card flex items-center justify-center p-4 bg-pink-500 text-white rounded-full font-semibold shadow-md transform-gpu animate-fadeIn delay-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon h-6 w-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.851.07 1.17.061 1.741.244 2.257.447.533.209.957.518 1.343.904.387.386.696.81.904 1.343.203.516.386 1.087.447 2.257.058 1.267.07 1.647.07 4.851s-.012 3.584-.07 4.851c-.061 1.17-.244 1.741-.447 2.257-.209.533-.518.957-.904 1.343-.387.387-.81.696-1.343.904-.516.203-1.087.386-2.257.447-1.267.058-1.647.07-4.851.07s-3.584-.012-4.851-.07c-1.17-.061-1.741-.244-2.257-.447-.533-.209-.957-.518-1.343-.904-.387-.386-.696-.81-.904-1.343-.203-.516-.386-1.087-.447-2.257-.058-1.267-.07-1.647-.07-4.851s.012-3.584.07-4.851c.061-1.17.244-1.741.447-2.257.209-.533.518-.957.904-1.343.387-.386.81-.696 1.343-.904.516-.203 1.087-.386 2.257-.447 1.267-.058 1.647-.07 4.851-.07zm0-2.163c-3.259 0-3.668.014-4.949.072-1.282.062-2.161.275-2.91.571-.749.297-1.403.744-2.031 1.372-.629.628-1.076 1.282-1.372 2.031-.296.749-.509 1.628-.571 2.91-.058 1.281-.072 1.69-.072 4.949s.014 3.668.072 4.949c.062 1.282.275 2.161.571 2.91.297.749.744 1.403 1.372 2.031.628.628 1.282 1.076 2.031 1.372.749.296 1.628.509 2.91.571 1.281.058 1.69.072 4.949.072s3.668-.014 4.949-.072c1.282-.062 2.161-.275 2.91-.571.749-.297 1.403-.744 2.031-1.372.628-.629 1.076-1.282 1.372-2.031.296-.749.509-1.628.571-2.91.058-1.281.072-1.69.072-4.949s-.014-3.668-.072-4.949c-.062-1.282-.275-2.161-.571-2.91-.297-.749-.744-1.403-1.372-2.031-.629-.628-1.282-1.076-2.031-1.372-.749-.296-1.628-.509-2.91-.571-1.281-.058-1.69-.072-4.949-.072zm0 5.838c-3.465 0-6.262 2.797-6.262 6.262s2.797 6.262 6.262 6.262 6.262-2.797 6.262-6.262-2.797-6.262-6.262-6.262zm0 10.362c-2.26 0-4.102-1.842-4.102-4.102s1.842-4.102 4.102-4.102 4.102 1.842 4.102 4.102-1.842 4.102-4.102 4.102zm6.26-8.541c0-.528.43-.958.958-.958.528 0 .958.43.958.958 0 .528-.43.958-.958.958s-.958-.43-.958-.958z"/>
+                </svg>
+                Instagram
+            </a>
+        </div>
+    </div>
+</body>
+</html>
